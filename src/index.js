@@ -1,10 +1,11 @@
-import 'dotenv/config';
-import cors from 'cors';
-import bodyParser from 'body-parser';
-import express from 'express';
+//import 'dotenv/config';
+const cors = require('cors');
+const bodyParser = require('body-parser');
+const express = require('express');
 
-import models, { connectDb } from './models';
-import routes from './routes';
+const { models } = require('./models');
+const { connectDb } = require('./models');
+const routes = require('./routes');
 
 const app = express();
 
@@ -21,14 +22,13 @@ app.use(async (req, res, next) => {
   next();
 });
 
-
-
 app.use('/session', routes.session);
 app.use('/users', routes.user);
 app.use('/messages', routes.message);
 
-
 const eraseDatabaseOnSync = true;
+
+const PORT = 5000;
 
 connectDb().then(async () => {
   if (eraseDatabaseOnSync) {
@@ -40,8 +40,8 @@ connectDb().then(async () => {
     createUsersWithMessages();
   }
 
-  app.listen(5000, () =>
-    console.log(`App Escuchando en ${process.env.PORT}!`),
+  app.listen(PORT, () =>
+    console.log(`App Escuchando en ${PORT}!`),
   );
 });
 

@@ -1,4 +1,5 @@
-import { Router } from 'express';
+//import { Router } from 'express';
+const Router = require('express');
 
 const router = Router();
 
@@ -14,4 +15,5 @@ router.get('/:userId', async (req, res) => {
   return res.send(user);
 });
 
-export default router;
+//export default router;
+module.exports = router;

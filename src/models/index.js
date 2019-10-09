@@ -1,14 +1,13 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
-import User from './user';
-import Message from './message';
+const { User }  = require('./user');
+const { Message } = require('./message');
 
-const connectDb = () => {
-  return mongoose.connect(process.env.DATABASE_URL);
+const DATABASE_URL = 'mongodb+srv://admin:1234@cluster0-s8ukh.mongodb.net/test?retryWrites=true&w=majority';
+
+module.exports.connectDb = () => {
+  return mongoose.connect(DATABASE_URL);
 };
 
-const models = { User, Message };
+module.exports.models = { User, Message };
 
-export { connectDb };
-
-export default models;
