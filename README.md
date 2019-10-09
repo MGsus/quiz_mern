@@ -29,3 +29,4 @@ Realice las consultas a los endpoints y muestre los resultados.
 
 # Despliegue
 Realice el despliegue del software web en un servicio PaaS o Iaas de su preferencia. (Ejemplo ZEIT). Despliegue desde GitHub o de forma manual.
+
