@@ -40,7 +40,7 @@ connectDb().then(async () => {
     createUsersWithMessages();
   }
 
-  app.listen(process.env.PORT, () =>
+  app.listen(5000, () =>
     console.log(`App Escuchando en ${process.env.PORT}!`),
   );
 });
